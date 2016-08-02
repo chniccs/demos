@@ -2,11 +2,13 @@ package com.chniccs.study.demos.recycleview_refresh;
 
 import android.animation.Animator;
 import android.animation.AnimatorListenerAdapter;
+import android.animation.ObjectAnimator;
 import android.animation.ValueAnimator;
 import android.annotation.TargetApi;
 import android.content.Context;
 import android.content.res.TypedArray;
 import android.graphics.Canvas;
+import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.RectF;
 import android.os.Build;
@@ -66,7 +68,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
     private float mInitialMotionY;
     private boolean mIsBeingDragged;
     private int mActivePointerId = INVALID_POINTER;
-    private boolean mScale=true;
+    private boolean mScale = false;
 
     private boolean mReturningToStart;
     private final DecelerateInterpolator mDecelerateInterpolator;
@@ -242,7 +244,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         ViewCompat.setChildrenDrawingOrderEnabled(this, true);
         mSpinnerFinalOffset = DEFAULT_CIRCLE_TARGET * metrics.density;
         density = metrics.density;
-        mTotalDragDistance = mSpinnerFinalOffset;
+        mTotalDragDistance = mSpinnerFinalOffset;// TODO
     }
 
     /**
@@ -388,15 +390,20 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
                 animateOffsetToCorrectPosition(mCurrentTargetOffsetTop,
                         mRefreshListener);
             } else {//刷新结束
-
-//                startScaleDownAnimation(mRefreshListener);
                 animateOffsetToStartPosition(mCurrentTargetOffsetTop, null);
             }
         }
     }
 
+    public void refresh() {
+        mCurrentTargetOffsetTop = (int) mSpinnerFinalOffset;
+        setRefreshing(true, true);
+        mHeadViewContainer.setVisibility(VISIBLE);
+    }
+
     /**
      * 缩放的默认动画
+     *
      * @param listener
      */
     private void startScaleDownAnimation(Animation.AnimationListener listener) {
@@ -722,8 +729,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
                 final int pointerIndex = MotionEventCompat.findPointerIndex(ev,
                         mActivePointerId);
                 if (pointerIndex < 0) {
-                    Log.e(LOG_TAG,
-                            "Got ACTION_MOVE event but have an invalid active pointer id.");
+                    Log.e(LOG_TAG, "Got ACTION_MOVE event but have an invalid active pointer id.");
                     return false;
                 }
 
@@ -990,6 +996,11 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         mHeadViewContainer.startAnimation(mAnimateToCorrectPosition);
     }
 
+    /**
+     * 回到顶部
+     * @param from
+     * @param listener
+     */
     private void animateOffsetToStartPosition(int from,
                                               Animation.AnimationListener listener) {
         if (mScale) {

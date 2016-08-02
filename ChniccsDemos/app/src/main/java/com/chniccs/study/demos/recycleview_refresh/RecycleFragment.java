@@ -9,12 +9,15 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.chniccs.study.demos.R;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import butterknife.OnClick;
 
 /**
  * Created by meiya on 16/8/1.
@@ -41,6 +44,8 @@ public class RecycleFragment extends Fragment {
     RecyclerView mRecyclerView;
     @BindView(R.id.swiperefresh)
     SuperSwipeRefreshLayout mRefresh;
+    @BindView(R.id.btn)
+    Button mBtn;
 
     @Nullable
     @Override
@@ -104,6 +109,18 @@ public class RecycleFragment extends Fragment {
             }
         });
 
+//        mBtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                doRefresh(view);
+//            }
+//        });
+
+    }
+    @OnClick(R.id.btn)
+    public void doRefresh(View view){
+        mRefresh.refresh();
+//        Toast.makeText(getActivity(),"点击了",Toast.LENGTH_SHORT).show();
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
