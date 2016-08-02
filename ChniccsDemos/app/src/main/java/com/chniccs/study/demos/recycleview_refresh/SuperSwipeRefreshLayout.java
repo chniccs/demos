@@ -135,7 +135,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         public void onAnimationEnd(Animation animation) {
             isProgressEnable = true;
             if (mRefreshing) {
-                if (mNotify) {
+                if (mNotify) {//是否需要唤醒动画头部动画线程
                     if (usingDefaultHeader) {
                         ViewCompat.setAlpha(defaultProgressView, 1.0f);
                         defaultProgressView.setOnDraw(true);
@@ -386,7 +386,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
             mNotify = notify;
             ensureTarget();
             mRefreshing = refreshing;
-            if (mRefreshing) {//如果是在刷新中
+            if (mRefreshing) {//如果是需要刷新
                 animateOffsetToCorrectPosition(mCurrentTargetOffsetTop,
                         mRefreshListener);
             } else {//刷新结束
@@ -395,8 +395,11 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         }
     }
 
+    /**
+     * 手动刷新
+     */
     public void refresh() {
-        mCurrentTargetOffsetTop = (int) mSpinnerFinalOffset;
+        mCurrentTargetOffsetTop = (int) mSpinnerFinalOffset;//设置默认的高度
         setRefreshing(true, true);
         mHeadViewContainer.setVisibility(VISIBLE);
     }
@@ -982,7 +985,11 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         }
     }
 
-    //TODO
+    /**
+     * 回到默认高度的动画
+     * @param from
+     * @param listener
+     */
     private void animateOffsetToCorrectPosition(int from,
                                                 Animation.AnimationListener listener) {
         mFrom = from;
@@ -998,6 +1005,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
 
     /**
      * 回到顶部
+     *
      * @param from
      * @param listener
      */

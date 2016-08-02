@@ -6,11 +6,7 @@
     android:orientation="vertical"
     tools:context=".ui.MainActivity">
 
-    <Button
-        android:text="刷新"
-        android:id="@+id/btn"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
+
 
     <com.chniccs.study.demos.recycleview_refresh.SuperSwipeRefreshLayout
         android:id="@+id/swiperefresh"

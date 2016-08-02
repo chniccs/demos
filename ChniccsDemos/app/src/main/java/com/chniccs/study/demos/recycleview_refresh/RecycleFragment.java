@@ -44,8 +44,7 @@ public class RecycleFragment extends Fragment {
     RecyclerView mRecyclerView;
     @BindView(R.id.swiperefresh)
     SuperSwipeRefreshLayout mRefresh;
-    @BindView(R.id.btn)
-    Button mBtn;
+
 
     @Nullable
     @Override
@@ -109,19 +108,10 @@ public class RecycleFragment extends Fragment {
             }
         });
 
-//        mBtn.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                doRefresh(view);
-//            }
-//        });
+
 
     }
-    @OnClick(R.id.btn)
-    public void doRefresh(View view){
-        mRefresh.refresh();
-//        Toast.makeText(getActivity(),"点击了",Toast.LENGTH_SHORT).show();
-    }
+
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
 
@@ -154,7 +144,6 @@ public class RecycleFragment extends Fragment {
         public MyHolder(View itemView) {
             super(itemView);
             ButterKnife.bind(this, itemView);
-//            tv = (TextView) itemView.findViewById(R.id.tv);
         }
 
         @BindView(R.id.tv)
