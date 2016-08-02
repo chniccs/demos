@@ -24,20 +24,20 @@ import butterknife.OnClick;
  * 带下拉刷新的RecycleView的通用Fragment
  * 因为使用的是butterknife注解，所以需要在gladle中配置
  * //以下的是配置在主工程中
- *  apply plugin: 'android-apt'
- *
- *  android {
- *  compileSdkVersion 24
- *  .....
- *  dependencies {
- *  ...
- *  compile 'com.android.support:recyclerview-v7:24.1.1'//recycle
- *  compile 'com.jakewharton:butterknife:8.2.1'
- *  apt 'com.jakewharton:butterknife-compiler:8.2.1'
- *  以下配置在项目中：
- *  dependencies {
- *  ...
- *  classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
+ * apply plugin: 'android-apt'
+ * <p/>
+ * android {
+ * compileSdkVersion 24
+ * .....
+ * dependencies {
+ * ...
+ * compile 'com.android.support:recyclerview-v7:24.1.1'//recycle
+ * compile 'com.jakewharton:butterknife:8.2.1'
+ * apt 'com.jakewharton:butterknife-compiler:8.2.1'
+ * 以下配置在项目中：
+ * dependencies {
+ * ...
+ * classpath 'com.neenbedankt.gradle.plugins:android-apt:1.8'
  */
 public class RecycleFragment extends Fragment {
     @BindView(R.id.recycleview)
@@ -107,7 +107,9 @@ public class RecycleFragment extends Fragment {
 
             }
         });
-
+        TextView tv = new TextView(getActivity());
+        tv.setText("加载中。。。");
+        mRefresh.setFooterView(tv);
 
 
     }

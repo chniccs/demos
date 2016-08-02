@@ -234,6 +234,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
                 .getSystemService(Context.WINDOW_SERVICE);
         Display display = wm.getDefaultDisplay();
         final DisplayMetrics metrics = getResources().getDisplayMetrics();
+
         mHeaderViewWidth = (int) display.getWidth();
         mFooterViewWidth = (int) display.getWidth();
         mHeaderViewHeight = (int) (HEADER_VIEW_HEIGHT * metrics.density);
@@ -509,10 +510,10 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
                                 - getPaddingTop() - getPaddingBottom(),
                         MeasureSpec.EXACTLY));
         mHeadViewContainer.measure(MeasureSpec.makeMeasureSpec(
-                mHeaderViewWidth, MeasureSpec.EXACTLY), MeasureSpec
+                MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec
                 .makeMeasureSpec(3 * mHeaderViewHeight, MeasureSpec.EXACTLY));
         mFooterViewContainer.measure(MeasureSpec.makeMeasureSpec(
-                mFooterViewWidth, MeasureSpec.EXACTLY), MeasureSpec
+                MeasureSpec.getSize(widthMeasureSpec), MeasureSpec.EXACTLY), MeasureSpec
                 .makeMeasureSpec(mFooterViewHeight, MeasureSpec.EXACTLY));
         if (!mUsingCustomStart && !mOriginalOffsetCalculated) {
             mOriginalOffsetCalculated = true;
