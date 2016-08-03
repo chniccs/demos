@@ -12,14 +12,19 @@ import android.widget.TextView;
 
 
 import com.chniccs.study.demos.R;
+import com.chniccs.study.demos.readerscript.ReaderScriptFragment;
+import com.chniccs.study.demos.recycleview_refresh.RecycleFragment;
+
+import java.util.ArrayList;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    String[] strs = {"Recycle&refreshDemo"};
+    String[] strs = {"Recycle&refreshDemo", "ReaderScriptDemo"};
     @BindView(R.id.recycleview)
     RecyclerView mRecyclerView;
+    private ArrayList<String> mFragments;//用于存储各个fragment的类名
 
 
     @Override
@@ -27,28 +32,33 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         ButterKnife.bind(this);
+        initData();
+        initView();
+    }
+
+    private void initView() {
         LinearLayoutManager linearLayoutManager = new LinearLayoutManager(this);
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
-        MyAdapter adapter= new MyAdapter();
+        MyAdapter adapter = new MyAdapter();
         mRecyclerView.setAdapter(adapter);
+
         adapter.setOnItemClickListener(new MyItemClickListener() {
             @Override
             void onClick(View v, int position) {
-                Intent intent=new Intent();
-                switch (position){
-                    case 0:
-
-                        intent.setClass(MainActivity.this,ContainerActivity.class);
-
-                        break;
-                }
+                Intent intent = new Intent();
+                intent.setClass(MainActivity.this, ContainerActivity.class);
+                String className = mFragments.get(position);
+                intent.putExtra(ContainerActivity.CLASS_NAME, className);
                 startActivity(intent);
             }
         });
+    }
 
-
-
+    private void initData() {
+        mFragments = new ArrayList<>();
+        mFragments.add(RecycleFragment.class.getName());
+        mFragments.add(ReaderScriptFragment.class.getName());
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
@@ -56,8 +66,7 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public MyHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-//            ButterKnife.bind(R.layout.item);
-            MyHolder holder=new MyHolder(LayoutInflater.from(
+            MyHolder holder = new MyHolder(LayoutInflater.from(
                     MainActivity.this).inflate(R.layout.item, parent,
                     false));
             holder.setOnClickListener(myItemClickListener);
@@ -66,18 +75,21 @@ public class MainActivity extends AppCompatActivity {
 
         @Override
         public void onBindViewHolder(MyHolder holder, int position) {
-            holder.tv.setText(strs[position]);
+            String className = mFragments.get(position);
+            holder.tv.setText(className.substring(className.lastIndexOf(".") + 1, className.length()));
         }
 
         @Override
         public int getItemCount() {
-            return strs.length;
+            return mFragments.size();
         }
+
         /**
          * 设置Item点击监听
+         *
          * @param listener
          */
-        public void setOnItemClickListener(MyItemClickListener listener){
+        public void setOnItemClickListener(MyItemClickListener listener) {
             this.myItemClickListener = listener;
         }
 
@@ -89,11 +101,12 @@ public class MainActivity extends AppCompatActivity {
 
         public MyHolder(View itemView) {
             super(itemView);
-            ButterKnife.bind(this, itemView);
-            itemView.setOnClickListener(this);
+            ButterKnife.bind(this, itemView);//注解绑定
+            itemView.setOnClickListener(this);//设置item点击
         }
-        public void setOnClickListener(MyItemClickListener listener){
-            myItemClickListener=listener;
+
+        public void setOnClickListener(MyItemClickListener listener) {
+            myItemClickListener = listener;
         }
 
         @BindView(R.id.tv)
