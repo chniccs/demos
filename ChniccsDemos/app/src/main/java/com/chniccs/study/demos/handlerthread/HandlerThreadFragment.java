@@ -5,8 +5,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.os.Message;
-import android.os.SystemClock;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -49,7 +49,7 @@ import butterknife.ButterKnife;
  * mainHandler.setEmptyMessage(UPDATE_UI_THREAD);
  */
 public class HandlerThreadFragment extends Fragment {
-    private Handler mThreadWork, mHandler;
+    private Handler mHandlerWork, mHandler;
     private HandlerThread mHandlerThread;
     private static final int MSG_UPDATE_INFO = 1;
     private static final int UPADTE_UI_THREAD = 2;
@@ -64,10 +64,8 @@ public class HandlerThreadFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
 
         View view = inflater.inflate(R.layout.fragment_handler_thread, container, false);
-
         ButterKnife.bind(this, view);
         init();
-
         return view;
     }
 
@@ -75,7 +73,7 @@ public class HandlerThreadFragment extends Fragment {
     public void onResume() {
         super.onResume();
         doWork = true;
-        mThreadWork.sendEmptyMessage(MSG_UPDATE_INFO);
+        mHandlerWork.sendEmptyMessage(MSG_UPDATE_INFO);
     }
 
     @Override
@@ -87,7 +85,7 @@ public class HandlerThreadFragment extends Fragment {
     private void init() {
         mHandlerThread = new HandlerThread("chniccs's worker");
         mHandlerThread.start();//一定要调用
-        mThreadWork = new Handler(mHandlerThread.getLooper()) {
+        mHandlerWork = new Handler(mHandlerThread.getLooper()) {
             @Override
             public void handleMessage(Message msg) {
                 if (msg.what == MSG_UPDATE_INFO) {
@@ -101,7 +99,7 @@ public class HandlerThreadFragment extends Fragment {
             public void handleMessage(Message msg) {
                 if (msg.what == UPADTE_UI_THREAD) {
                     mTv.setText(String.format(getResources().getString(R.string.current_time), new Date(System.currentTimeMillis()).toString()));
-                    mThreadWork.sendEmptyMessage(MSG_UPDATE_INFO);
+                    mHandlerWork.sendEmptyMessage(MSG_UPDATE_INFO);
                 }
                 super.handleMessage(msg);
             }
@@ -109,7 +107,7 @@ public class HandlerThreadFragment extends Fragment {
     }
 
     private void doWork() {
-//模拟耗时
+        //模拟耗时
         try {
             Thread.sleep(1000);
             if (doWork) {
