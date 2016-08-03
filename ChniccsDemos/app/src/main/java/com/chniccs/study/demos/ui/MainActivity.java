@@ -21,7 +21,6 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 
 public class MainActivity extends AppCompatActivity {
-    String[] strs = {"Recycle&refreshDemo", "ReaderScriptDemo"};
     @BindView(R.id.recycleview)
     RecyclerView mRecyclerView;
     private ArrayList<String> mFragments;//用于存储各个fragment的类名
@@ -57,8 +56,8 @@ public class MainActivity extends AppCompatActivity {
 
     private void initData() {
         mFragments = new ArrayList<>();
-        mFragments.add(RecycleFragment.class.getName());
-        mFragments.add(ReaderScriptFragment.class.getName());
+        mFragments.add(RecycleFragment.class.getName());//可上拉加载和下拉刷新的recycle案例
+        mFragments.add(ReaderScriptFragment.class.getName());//动态模糊的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
