@@ -12,6 +12,7 @@ import android.widget.TextView;
 
 
 import com.chniccs.study.demos.R;
+import com.chniccs.study.demos.handlerthread.HandlerThreadFragment;
 import com.chniccs.study.demos.readerscript.ReaderScriptFragment;
 import com.chniccs.study.demos.recycleview_refresh.RecycleFragment;
 
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments = new ArrayList<>();
         mFragments.add(RecycleFragment.class.getName());//可上拉加载和下拉刷新的recycle案例
         mFragments.add(ReaderScriptFragment.class.getName());//动态模糊的案例
+        mFragments.add(HandlerThreadFragment.class.getName());//handlerThread用法的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
