@@ -19,28 +19,24 @@ public class ContainerActivity extends AppCompatActivity {
         setContentView(R.layout.activity_container);
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
-
         String class_name = getIntent().getStringExtra("class_name");
-
         if (class_name == null || TextUtils.isEmpty(class_name)) {
             return;
         }
-        Class clazz1 = null;
-        try {
-            clazz1 = Class.forName(class_name);
-        } catch (ClassNotFoundException e) {
-            e.printStackTrace();
-            return;
-        }
 
+        Class clazz1 = null;
         Object object = null;
         try {
+            clazz1 = Class.forName(class_name);
             object = clazz1.newInstance();
         } catch (InstantiationException e) {
             e.printStackTrace();
         } catch (IllegalAccessException e) {
             e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
         }
+
         if (object == null) {
             return;
         }
