@@ -15,6 +15,7 @@ import com.chniccs.study.demos.R;
 import com.chniccs.study.demos.handlerthread.HandlerThreadFragment;
 import com.chniccs.study.demos.readerscript.ReaderScriptFragment;
 import com.chniccs.study.demos.recycleview_refresh.RecycleFragment;
+import com.chniccs.study.demos.security.SecurityFragment;
 
 import java.util.ArrayList;
 
@@ -60,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(RecycleFragment.class.getName());//可上拉加载和下拉刷新的recycle案例
         mFragments.add(ReaderScriptFragment.class.getName());//动态模糊的案例
         mFragments.add(HandlerThreadFragment.class.getName());//handlerThread用法的案例
+        mFragments.add(SecurityFragment.class.getName());//自定义加密解密的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
