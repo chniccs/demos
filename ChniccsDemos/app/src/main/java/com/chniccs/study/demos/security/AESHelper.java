@@ -12,7 +12,7 @@ import javax.crypto.spec.SecretKeySpec;
 public class AESHelper {
     private static final String CipherMode = "AES/ECB/PKCS5Padding";
 
-    // /** 创建key **/
+     /** 创建key **/
     private static SecretKeySpec createKey(String password) {
         byte[] data = null;
         if (password == null) {
@@ -35,7 +35,7 @@ public class AESHelper {
         return new SecretKeySpec(data, "AES");
     }
 
-    // /** 加密 **/
+     /** 加密 **/
     public static byte[] encrypt(byte[] content, String password) {
         try {
             SecretKeySpec key = createKey(password);
@@ -50,7 +50,7 @@ public class AESHelper {
         return null;
     }
 
-    // /** 加密 **/
+     /** 加密 **/
     public static String encrypt(String content, String password) {
         byte[] data = null;
         try {
@@ -63,7 +63,7 @@ public class AESHelper {
         return result;
     }
 
-    // /** 解密 **/
+     /** 解密 **/
     public static byte[] decrypt(byte[] content, String password) {
         try {
             SecretKeySpec key = createKey(password);
@@ -77,7 +77,7 @@ public class AESHelper {
         return null;
     }
 
-    // /** 解密 **/
+     /** 解密 **/
     public static String decrypt(String content, String password) {
         byte[] data = null;
         try {
@@ -98,11 +98,10 @@ public class AESHelper {
     }
 
 
-    public static String byte2hex(byte[] b) { //
+    public static String byte2hex(byte[] b) {
         StringBuffer sb = new StringBuffer(b.length * 2);
         String tmp = "";
         for (int n = 0; n < b.length; n++) {
-
             tmp = (java.lang.Integer.toHexString(b[n] & 0XFF));
             if (tmp.length() == 1) {
                 sb.append("0");
