@@ -18,6 +18,7 @@ public class RxBus {
     private final Subject<Object, Object> bus;
 
     // PublishSubject只会把在订阅发生的时间点之后来自原始Observable的数据发射给观察者
+    // 关于Subject，可以阅读http://www.mamicode.com/info-detail-987998.html
     public RxBus() {
         bus = new SerializedSubject<>(PublishSubject.create());
     }

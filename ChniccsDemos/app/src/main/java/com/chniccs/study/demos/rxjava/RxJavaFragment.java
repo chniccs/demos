@@ -90,6 +90,7 @@ public class RxJavaFragment extends Fragment {
 
     @OnClick(R.id.rxjava_btn_get_drawable)
     public void getDrawable(View v) {
+
         final int drawable = R.drawable.dayu;
         Observable.create(new Observable.OnSubscribe<Drawable>() {
 
@@ -107,6 +108,7 @@ public class RxJavaFragment extends Fragment {
                         //这里可以执行一些在准备工作，且是在主线程中执行的。如弹出进度条
                     }
                 })
+//                .compose(RxSchedulersHelper.<Drawable>io_main())//这一步也同样实现了下两步的操作，实现线程调度
                 .subscribeOn(AndroidSchedulers.mainThread())
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Observer<Drawable>() {

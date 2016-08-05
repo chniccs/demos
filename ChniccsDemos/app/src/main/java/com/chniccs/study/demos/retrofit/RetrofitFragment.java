@@ -49,7 +49,6 @@ public class RetrofitFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://ip.taobao.com")
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
                 .client(new OkHttpClient())
                 .build();
         IIPInterface iipInterface = retrofit.create(IIPInterface.class);
@@ -72,12 +71,10 @@ public class RetrofitFragment extends Fragment {
         Observer<IPBean> observer = new Observer<IPBean>() {
             @Override
             public void onCompleted() {
-
             }
 
             @Override
             public void onError(Throwable e) {
-
             }
 
             @Override
@@ -88,7 +85,7 @@ public class RetrofitFragment extends Fragment {
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://ip.taobao.com")
                 .addConverterFactory(GsonConverterFactory.create())
-                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
+                .addCallAdapterFactory(RxJavaCallAdapterFactory.create())//这里要增加数据适配器
                 .client(new OkHttpClient())
                 .build();
         IIPInterface iipInterface = retrofit.create(IIPInterface.class);
