@@ -15,6 +15,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.chniccs.study.demos.R;
+import com.chniccs.study.demos.app.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -23,6 +24,7 @@ import rx.Observable;
 import rx.Observer;
 import rx.Scheduler;
 import rx.Subscriber;
+import rx.Subscription;
 import rx.android.schedulers.AndroidSchedulers;
 import rx.functions.Action0;
 import rx.functions.Action1;
@@ -31,6 +33,7 @@ import rx.schedulers.Schedulers;
 
 /**
  * Created by chniccs on 16/8/4.
+ * 几个月后再次读了大神 扔物线 的http://gank.io/post/560e15be2dca930e00da1083这篇文章后记录下简单的使用案例
  */
 public class RxJavaFragment extends Fragment {
     String tag = "rxjava";
@@ -41,6 +44,7 @@ public class RxJavaFragment extends Fragment {
     ImageView mIvDrawable;
 
     private String[] strs = {"1", "2", "3"};
+    private Subscription mSubscribe;
 
     @Nullable
     @Override
@@ -151,7 +155,7 @@ public class RxJavaFragment extends Fragment {
 
     @OnClick(R.id.rxjava_btn_flatmap)
     public void doFlatMap(View v) {//flatmap的用处很厉害，主要是他返回的并不是处理后的对象或数据，而在返回一个Observable对象，你可以在这个Observable里处理你想干的事
-        Observable.from(strs)
+        mSubscribe = Observable.from(strs)
                 .flatMap(new Func1<String, Observable<Integer>>() {
                     @Override
                     public Observable<Integer> call(String s) {
@@ -179,5 +183,9 @@ public class RxJavaFragment extends Fragment {
 
     }
 
-
+    @Override
+    public void onDestroy() {
+        Log.d(Constants.TAG,mSubscribe.isUnsubscribed()+"");//这里主要是检测在执行完之后，mSubscribe是否自动取消了订阅，测试是会自动取消的
+        super.onDestroy();
+    }
 }

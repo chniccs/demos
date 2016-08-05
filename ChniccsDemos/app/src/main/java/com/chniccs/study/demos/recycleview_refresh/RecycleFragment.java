@@ -20,7 +20,7 @@ import butterknife.ButterKnife;
 import butterknife.OnClick;
 
 /**
- * Created by meiya on 16/8/1.
+ * Created by chniccs on 16/8/1.
  * 带下拉刷新的RecycleView的通用Fragment
  * 因为使用的是butterknife注解，所以需要在gladle中配置
  * //以下的是配置在主工程中

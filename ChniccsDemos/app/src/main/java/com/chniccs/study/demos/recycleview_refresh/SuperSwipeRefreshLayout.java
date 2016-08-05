@@ -36,6 +36,7 @@ import android.widget.ScrollView;
 
 /**
  * Created by meiya on 16/8/1.
+ * 在https://github.com/nuptboyzhb/SuperSwipeRefreshLayout 的基础上进行修改，添加了手动设置刷新的功能，完善了头部和尾部view大小的计算，更加准确
  */
 public class SuperSwipeRefreshLayout extends ViewGroup {
     private static final String LOG_TAG = "CustomeSwipeRefreshLayout";

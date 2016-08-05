@@ -16,6 +16,7 @@ import com.chniccs.study.demos.handlerthread.HandlerThreadFragment;
 import com.chniccs.study.demos.readerscript.ReaderScriptFragment;
 import com.chniccs.study.demos.recycleview_refresh.RecycleFragment;
 import com.chniccs.study.demos.retrofit.RetrofitFragment;
+import com.chniccs.study.demos.rxbus.RxBusFragment;
 import com.chniccs.study.demos.rxjava.RxJavaFragment;
 import com.chniccs.study.demos.security.SecurityFragment;
 
@@ -66,6 +67,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(SecurityFragment.class.getName());//自定义加密解密的案例
         mFragments.add(RxJavaFragment.class.getName());//rxjava的案例
         mFragments.add(RetrofitFragment.class.getName());//retrofit的案例
+        mFragments.add(RxBusFragment.class.getName());//rxbus的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
