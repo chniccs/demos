@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.chniccs.study.demos">
+          package="com.chniccs.study.demos">
 
     <application
         android:name=".app.BaseApplication"
@@ -11,12 +11,16 @@
         android:theme="@style/AppTheme">
         <activity android:name="com.chniccs.study.demos.ui.MainActivity">
             <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+                <action android:name="android.intent.action.MAIN"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
+                <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.chniccs.study.demos.ui.ContainerActivity"></activity>
+        <activity android:name="com.chniccs.study.demos.ui.ContainerActivity"/>
+
+
     </application>
+
+    <uses-permission android:name="android.permission.INTERNET"/>
 
 </manifest>

@@ -19,16 +19,30 @@
         android:gravity="center"
         android:textColor="@android:color/holo_blue_bright"
         android:textSize="20sp"/>
+
     <Button
         android:id="@+id/rxjava_btn_get_drawable"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:text="获得drawable"/>
+
     <ImageView
         android:id="@+id/rxjava_iv_drawable"
-        android:layout_gravity="center_horizontal"
         android:layout_width="wrap_content"
-        android:layout_height="wrap_content"/>
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"/>
 
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/rxjava_btn_map"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="map"/>
+    <Button
+        android:layout_gravity="center_horizontal"
+        android:id="@+id/rxjava_btn_flatmap"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="flatmap"/>
 </LinearLayout>
