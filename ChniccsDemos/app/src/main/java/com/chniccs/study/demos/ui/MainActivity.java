@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.chniccs.study.demos.R;
 import com.chniccs.study.demos.handlerthread.HandlerThreadFragment;
+import com.chniccs.study.demos.mvp.MvpFragment;
 import com.chniccs.study.demos.readerscript.ReaderScriptFragment;
 import com.chniccs.study.demos.recycleview_refresh.RecycleFragment;
 import com.chniccs.study.demos.retrofit.RetrofitFragment;
@@ -68,6 +69,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(RxJavaFragment.class.getName());//rxjava的案例
         mFragments.add(RetrofitFragment.class.getName());//retrofit的案例
         mFragments.add(RxBusFragment.class.getName());//rxbus的案例
+        mFragments.add(MvpFragment.class.getName());//Mvp模式的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {
