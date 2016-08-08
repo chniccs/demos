@@ -3,12 +3,14 @@ package com.chniccs.study.demos.mvp;
 import android.app.Fragment;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
 import com.chniccs.study.demos.R;
+import com.chniccs.study.demos.app.Constants;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;

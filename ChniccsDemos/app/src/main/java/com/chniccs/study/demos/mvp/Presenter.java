@@ -21,8 +21,8 @@ public class Presenter implements IPresenter {
 
     public Presenter(IView iView) {
         this.mIView = iView;
+        Log.d(Constants.TAG, iView.toString());
         mModel = new Model();
-
     }
 
     @Override
@@ -32,6 +32,7 @@ public class Presenter implements IPresenter {
 
     @Override
     public void click(View v) {
+
         Observable.create(new Observable.OnSubscribe<String>() {
             @Override
             public void call(Subscriber<? super String> subscriber) {
@@ -47,6 +48,7 @@ public class Presenter implements IPresenter {
                         mIView.setData(s);
                     }
                 });
+
 
     }
 }
