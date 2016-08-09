@@ -1,13 +1,14 @@
 apply plugin: 'com.android.application'
 apply plugin: 'android-apt'
+apply plugin: 'org.greenrobot.greendao'//greendao
 
 android {
     compileSdkVersion 24
-    buildToolsVersion "24.0.1"
+    buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "com.chniccs.study.demos"
         minSdkVersion 19
-        targetSdkVersion 24
+        targetSdkVersion 23
         versionCode 1
         versionName "1.0"
         //readerScript
@@ -25,6 +26,11 @@ android {
     productFlavors {
     }
 }
+greendao {
+    schemaVersion 1//指定数据库schema版本号，迁移等操作会用到
+    daoPackage 'com.chniccs.study.demos.greendao.gen'//通过gradle插件生成的数据库相关文件的包名，默认为你的entity所在的包名
+    targetGenDir 'src/main/java'//自定义生成数据库文件的目录了，可以将生成的文件放到我们的java目录中，而不是build中，这样就不用额外的设置资源目录了
+}
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
@@ -35,11 +41,9 @@ dependencies {
     compile 'com.android.support:recyclerview-v7:24.1.1'
     compile 'com.jakewharton:butterknife:8.2.1'
     compile 'com.android.support:support-v4:24.1.1'
-
     //Rxjava+Rxandroid
     compile 'io.reactivex:rxandroid:1.2.1'
     compile 'io.reactivex:rxjava:1.1.6'
-
     //Retrofit框架+okhttp
     compile 'com.squareup.okhttp3:okhttp:3.4.1'
     compile 'com.squareup.retrofit2:retrofit:2.1.0'
@@ -48,5 +52,7 @@ dependencies {
     compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
     //glide图片加载框架
     compile 'com.github.bumptech.glide:glide:3.7.0'
+    //sqlite框架greendao
+    compile 'org.greenrobot:greendao:3.1.0'
 }
 

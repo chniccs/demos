@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:layout_width="match_parent"
+              android:layout_height="match_parent"
+              android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/dynamic_proxy_tv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="2dp"
+        android:text="@string/dynamic_proxy"
+        android:textColor="@android:color/holo_blue_bright"/>
+
+    <Button
+        android:id="@+id/dynamic_proxy_btn_non_proxy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="无代理"/>
+
+    <Button
+        android:id="@+id/dynamic_proxy_btn_dynamic_proxy"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="动态代理"/>
+
+
+
+</LinearLayout>

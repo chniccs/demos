@@ -2,4 +2,5 @@
     <string name="app_name">chniccsDemos</string>
 
     <string name="current_time">当前时间：%s</string>
+    <string name="dynamic_proxy">动态代理是一静态代理的一种高级用法。其实就是一种可以在执行特定方法之前，我们可以执行一段自定义的代码，这段代码并不是事先创建好的，而是根据需要动态的去创建的。作用主要是用来作一些通用的操作，比如给所有委托类执行某方法前都执行一段初始化操作。</string>
 </resources>
