@@ -156,7 +156,7 @@ public class RxJavaFragment extends Fragment {
     }
 
     @OnClick(R.id.rxjava_btn_flatmap)
-    public void doFlatMap(View v) {//flatmap的用处很厉害，主要是他返回的并不是处理后的对象或数据，而在返回一个Observable对象，你可以在这个Observable里处理你想干的事
+    public void doFlatMap(View v) {//flatmap的用处很厉害，主要是他返回的并不是处理后的对象或数据，而在返回一个或多个Observable对象，并组成序列输出，你可以在这个Observable里处理你想干的事
         mSubscribe = Observable.from(strs)
                 .flatMap(new Func1<String, Observable<Integer>>() {
                     @Override
