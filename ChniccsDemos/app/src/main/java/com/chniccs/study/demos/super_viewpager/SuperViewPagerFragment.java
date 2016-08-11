@@ -82,7 +82,6 @@ public class SuperViewPagerFragment extends Fragment {
 
         @Override
         public Object instantiateItem(ViewGroup container, int position) {
-
             View view = LayoutInflater.from(container.getContext()).inflate(R.layout.item_vertical_viewpager, null);
             VerticalViewPager verticalViewPager = (VerticalViewPager) view.findViewById(R.id.super_viewpager_vertical);
             verticalViewPager.setAdapter(new VerticalAdapter());
@@ -93,8 +92,6 @@ public class SuperViewPagerFragment extends Fragment {
             container.addView(view);
             return view;
         }
-
-
         @Override
         public void destroyItem(ViewGroup container, int position, Object object) {
             container.removeView((View) object);
