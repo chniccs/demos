@@ -3,7 +3,7 @@ apply plugin: 'android-apt'
 apply plugin: 'org.greenrobot.greendao'//greendao
 
 android {
-    compileSdkVersion 24
+    compileSdkVersion 23
     buildToolsVersion '23.0.2'
     defaultConfig {
         applicationId "com.chniccs.study.demos"
