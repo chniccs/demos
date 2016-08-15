@@ -1,8 +1,8 @@
 package com.chniccs.study.demos.rxbus;
 
-import android.app.Fragment;
-import android.app.FragmentManager;
-import android.app.FragmentTransaction;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
@@ -55,7 +55,7 @@ public class RxBusFragment extends Fragment {
 
     @OnClick(R.id.rxbus_btn_show_fragment)
     public void showFragment(View v) {
-        FragmentManager fm = getFragmentManager();
+        FragmentManager fm = getActivity().getSupportFragmentManager();
         FragmentTransaction fg = fm.beginTransaction();
         fg.replace(R.id.rxbus_container, new RxBusFragmentObservable());
         fg.commit();

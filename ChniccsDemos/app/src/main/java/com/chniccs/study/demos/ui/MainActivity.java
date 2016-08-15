@@ -13,6 +13,7 @@ import android.widget.TextView;
 
 import com.chniccs.study.demos.R;
 import com.chniccs.study.demos.annotation.AnnotationFragment;
+import com.chniccs.study.demos.material_design.MaterialDesignFragment;
 import com.chniccs.study.demos.super_viewpager.SuperViewPagerFragment;
 import com.chniccs.study.demos.dynamic_proxy.DynamicProxyFragment;
 import com.chniccs.study.demos.greendao.GreenDaoFragment;
@@ -78,6 +79,7 @@ public class MainActivity extends AppCompatActivity {
         mFragments.add(GreenDaoFragment.class.getName());//使用greendao的案例
         mFragments.add(SuperViewPagerFragment.class.getName());//水平和竖起方向滑动的viewpager的案例
         mFragments.add(AnnotationFragment.class.getName());//自定义编译期注解的案例
+        mFragments.add(MaterialDesignFragment.class.getName());//材料设计语言风格控件的案例
     }
 
     class MyAdapter extends RecyclerView.Adapter<MyHolder> {

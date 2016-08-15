@@ -1,6 +1,6 @@
 package com.chniccs.study.demos.readerscript;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;

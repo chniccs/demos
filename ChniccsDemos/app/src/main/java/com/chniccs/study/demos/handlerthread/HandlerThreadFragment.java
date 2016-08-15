@@ -1,6 +1,6 @@
 package com.chniccs.study.demos.handlerthread;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.HandlerThread;

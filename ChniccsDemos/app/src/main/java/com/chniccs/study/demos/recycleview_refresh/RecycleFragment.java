@@ -1,6 +1,6 @@
 package com.chniccs.study.demos.recycleview_refresh;
 
-import android.app.Fragment;
+import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.os.SystemClock;
 import android.support.annotation.Nullable;
