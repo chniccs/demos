@@ -31,9 +31,9 @@ public abstract class BaseFragment extends Fragment {
 
     public abstract void initView();
 
-    protected void initData() {
+    protected  void initData() {
 
     }
 
-    ;
+
 }
