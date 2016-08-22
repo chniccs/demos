@@ -187,7 +187,7 @@ public class RxJavaFragment extends Fragment {
 
     @Override
     public void onDestroy() {
-        Log.d(Constants.TAG,mSubscribe.isUnsubscribed()+"");//这里主要是检测在执行完之后，mSubscribe是否自动取消了订阅，测试是会自动取消的
+//        Log.d(Constants.TAG,mSubscribe.isUnsubscribed()+"");//这里主要是检测在执行完之后，mSubscribe是否自动取消了订阅，测试是会自动取消的
         super.onDestroy();
     }
 }
