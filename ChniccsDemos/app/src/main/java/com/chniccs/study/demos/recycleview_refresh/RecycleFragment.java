@@ -110,7 +110,6 @@ public class RecycleFragment extends Fragment {
         TextView tv = new TextView(getActivity());
         tv.setText("加载中。。。");
         mRefresh.setFooterView(tv);
-        int i=1;
 
         
 
