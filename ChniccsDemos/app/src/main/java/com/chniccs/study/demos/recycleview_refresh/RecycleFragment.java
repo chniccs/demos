@@ -111,6 +111,8 @@ public class RecycleFragment extends Fragment {
         tv.setText("加载中。。。");
         mRefresh.setFooterView(tv);
 
+        
+
 
     }
 
