@@ -7,5 +7,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+    <style name="global_tv">
+        <item name="android:textColor">@color/color_F999</item>
+        <item name="android:textSize">@dimen/global_tv_size</item>
+    </style>
 
 </resources>
