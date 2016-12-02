@@ -33,7 +33,7 @@ public class MaterialDesignFragment extends Fragment {
     TabLayout mTablayout;
 
 
-    String[] strs = {"appbar", "collasping","snackbar"};
+    String[] strs = {"appbar", "collasping","snackbar","circularreveal"};
 
     @Nullable
     @Override
@@ -79,6 +79,9 @@ public class MaterialDesignFragment extends Fragment {
                 break;
             case 2:
                 fragment=new SnackBarFragment();
+                break;
+            case 3:
+                fragment=new CircularRevealFragment();
                 break;
         }
         return fragment;
