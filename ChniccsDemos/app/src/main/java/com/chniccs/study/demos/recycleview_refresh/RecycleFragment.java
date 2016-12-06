@@ -49,7 +49,7 @@ public class RecycleFragment extends Fragment {
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.activity_main, container, false);
+        View view = inflater.inflate(R.layout.fragment_recycleview, container, false);
         ButterKnife.bind(this, view);
         initView();
         return view;
@@ -60,7 +60,7 @@ public class RecycleFragment extends Fragment {
         linearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
         mRecyclerView.setLayoutManager(linearLayoutManager);
         mRecyclerView.setAdapter(new MyAdapter());
-        //mRefresh.setHeaderView();//设置头部刷新的view
+//        mRefresh.setHeaderView();//设置头部刷新的view
         //下拉刷新
         mRefresh.setOnPullRefreshListener(new SuperSwipeRefreshLayout.OnPullRefreshListener() {
             @Override
@@ -90,6 +90,7 @@ public class RecycleFragment extends Fragment {
 
             }
         });
+//        mRefresh.setTargetScrollWithLayout(false);
         //上拉加载更多
         mRefresh.setOnPushLoadMoreListener(new SuperSwipeRefreshLayout.OnPushLoadMoreListener() {
             @Override
@@ -128,7 +129,7 @@ public class RecycleFragment extends Fragment {
 
         @Override
         public void onBindViewHolder(MyHolder holder, int position) {
-            holder.tv.setText(position + "");
+//            holder.tv.setText(position + "");
         }
 
         @Override

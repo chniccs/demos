@@ -1,18 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@android:color/transparent"
-    android:orientation="vertical">
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:background="@android:color/holo_blue_bright"
+              android:orientation="vertical">
 
     <TextView
-        android:layout_marginBottom="1dp"
-        android:gravity="center"
         android:id="@+id/tv"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:background="@android:color/holo_blue_bright"
+        android:layout_marginBottom="1dp"
+        android:gravity="center"
         android:text="11111"
-        android:textColor="@android:color/black" />
+        android:textColor="@android:color/black"/>
 
 </LinearLayout>

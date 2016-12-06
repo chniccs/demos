@@ -39,7 +39,7 @@ import android.widget.ScrollView;
  * 在https://github.com/nuptboyzhb/SuperSwipeRefreshLayout 的基础上进行修改，添加了手动设置刷新的功能，完善了头部和尾部view大小的计算，更加准确
  */
 public class SuperSwipeRefreshLayout extends ViewGroup {
-    private static final String LOG_TAG = "CustomeSwipeRefreshLayout";
+    private static final String LOG_TAG = "SSRL";
     private static final int HEADER_VIEW_HEIGHT = 50;// HeaderView height (dp)
 
     private static final float DECELERATE_INTERPOLATION_FACTOR = 2f;
@@ -471,7 +471,7 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
         if (mTarget == null) {
             return;
         }
-        int distance = mCurrentTargetOffsetTop + mHeadViewContainer.getHeight();
+        int distance = mCurrentTargetOffsetTop + mHeadViewContainer.getMeasuredHeight();
         if (!targetScrollWithLayout) {
             // 判断标志位，如果目标View不跟随手指的滑动而滑动，将下拉偏移量设置为0
             distance = 0;
@@ -518,7 +518,8 @@ public class SuperSwipeRefreshLayout extends ViewGroup {
                 .makeMeasureSpec(mFooterViewHeight, MeasureSpec.EXACTLY));
         if (!mUsingCustomStart && !mOriginalOffsetCalculated) {
             mOriginalOffsetCalculated = true;
-            mCurrentTargetOffsetTop = mOriginalOffsetTop = -mHeadViewContainer
+            mCurrentTargetOffsetTop =
+                    mOriginalOffsetTop = -mHeadViewContainer
                     .getMeasuredHeight();
             updateListenerCallBack();
         }
