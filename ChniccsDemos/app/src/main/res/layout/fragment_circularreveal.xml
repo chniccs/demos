@@ -4,6 +4,12 @@
               android:orientation="vertical"
               android:layout_width="match_parent"
               android:layout_height="match_parent">
+    <FrameLayout
+        android:id="@+id/container"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+    </FrameLayout>
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
         android:layout_width="wrap_content"
@@ -14,5 +20,6 @@
         android:src="@android:drawable/ic_dialog_email"
         android:transitionName="transition_name"
         tools:targetApi="lollipop"/>
+
 
 </RelativeLayout>
