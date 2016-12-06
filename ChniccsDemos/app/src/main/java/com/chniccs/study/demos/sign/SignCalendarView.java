@@ -44,7 +44,6 @@ public class SignCalendarView extends LinearLayout {
     SinInDao sdao;
 
     Calendar mCalendar;
-
     GridView gdDate;
     TextView mTxtNowDate;
 
@@ -68,7 +67,6 @@ public class SignCalendarView extends LinearLayout {
         gdDate = (GridView) view.findViewById(R.id.gdDate);
 
         sdao = new SinInDao(mContext);//初始化数据库操作类
-
         SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
         Date m = null;
         //这里可以用来自定义传入的日期

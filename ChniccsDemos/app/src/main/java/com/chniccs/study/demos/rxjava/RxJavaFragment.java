@@ -143,11 +143,9 @@ public class RxJavaFragment extends Fragment {
                     @Override
                     public void onCompleted() {
                     }
-
                     @Override
                     public void onError(Throwable e) {
                     }
-
                     @Override
                     public void onNext(Integer integer) {
                         Log.d(tag, integer + 1 + "");
@@ -182,7 +180,6 @@ public class RxJavaFragment extends Fragment {
                         return Integer.parseInt(s) * 10;
                     }
                 });
-
     }
 
     @Override

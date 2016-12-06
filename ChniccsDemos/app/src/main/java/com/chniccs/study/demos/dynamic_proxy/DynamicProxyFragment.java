@@ -10,6 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.chniccs.study.demos.R;
+import com.chniccs.study.demos.app.BaseApplication;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
@@ -36,7 +37,7 @@ public class DynamicProxyFragment extends Fragment {
     @OnClick(R.id.dynamic_proxy_btn_dynamic_proxy)
     public void dynamicProxy(View v) {
         DynamicProxy.dynamicProxy();
-        Toast.makeText(getActivity(), "结果请查看日志", Toast.LENGTH_SHORT).show();
+        Toast.makeText(BaseApplication.getContext(), "结果请查看日志", Toast.LENGTH_SHORT).show();
     }
 
     @OnClick(R.id.dynamic_proxy_btn_non_proxy)
