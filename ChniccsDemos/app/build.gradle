@@ -3,12 +3,12 @@ apply plugin: 'android-apt'
 apply plugin: 'org.greenrobot.greendao'//greendao
 
 android {
-    compileSdkVersion 23
+    compileSdkVersion 24
     buildToolsVersion '23.0.3'
     defaultConfig {
         applicationId "com.chniccs.study.demos"
         minSdkVersion 21
-        targetSdkVersion 23
+        targetSdkVersion 24
         versionCode 1
         versionName "1.0"
         //readerScript
@@ -34,29 +34,26 @@ greendao {
 
 dependencies {
     compile fileTree(include: ['*.jar'], dir: 'libs')
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.jakewharton:butterknife:8.2.1'//butterknife
+    compile 'com.android.support:support-v4:24.2.1'
+    compile 'io.reactivex:rxandroid:1.2.1'//Rxjava+Rxandroid
+    compile 'io.reactivex:rxjava:1.1.6'//Rxjava+Rxandroid
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'//Retrofit框架+okhttp
+    compile 'com.squareup.retrofit2:retrofit:2.1.0'//Retrofit框架+okhttp
+    compile 'com.squareup.retrofit2:converter-gson:2.1.0'//Retrofit框架+okhttp
+    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'//Retrofit框架+okhttp
+    compile 'com.github.bumptech.glide:glide:3.7.0'  //glide图片加载框架
+    compile 'org.greenrobot:greendao:3.1.0'//sqlite框架greendao
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.google.dagger:dagger:2.8' //dagger2
+    compile 'com.google.firebase:firebase-messaging:9.6.1'//googlepush
     testCompile 'junit:junit:4.12'
-    //butterknife
     apt 'com.jakewharton:butterknife-compiler:8.2.1'
-    compile 'com.android.support:appcompat-v7:24.1.1'
-    compile 'com.android.support:recyclerview-v7:24.1.1'
-    compile 'com.jakewharton:butterknife:8.2.1'
-    compile 'com.android.support:support-v4:24.1.1'
-    //Rxjava+Rxandroid
-    compile 'io.reactivex:rxandroid:1.2.1'
-    compile 'io.reactivex:rxjava:1.1.6'
-    //Retrofit框架+okhttp
-    compile 'com.squareup.okhttp3:okhttp:3.4.1'
-    compile 'com.squareup.retrofit2:retrofit:2.1.0'
-    compile 'com.squareup.retrofit2:converter-gson:2.1.0'
-    //Rxjava结合Retrofit使用
-    compile 'com.squareup.retrofit2:adapter-rxjava:2.1.0'
-    //glide图片加载框架
-    compile 'com.github.bumptech.glide:glide:3.7.0'
-    //sqlite框架greendao
-    compile 'org.greenrobot:greendao:3.1.0'
-    compile 'com.android.support:design:24.1.1'
-//
-    compile 'com.google.dagger:dagger:2.8'
-    apt 'com.google.dagger:dagger-compiler:2.8'
+    apt 'com.google.dagger:dagger-compiler:2.8' //dagger2
 }
 
+
+apply plugin: 'com.google.gms.google-services'
