@@ -2,7 +2,7 @@
 这里一个样例工程，用于记录一些暂时未用上或者在学习中的知识
 
 # 目录
-[RecycleView添加上拉加载及下拉刷新的案例](https://github.com/chniccs/demos/tree/master/ChniccsDemos/app/src/main/java/com/chniccs/study/demos/recycleview_refresh)
+[RecycleView添加上拉加载及下拉刷新的案例](https://github.com/chniccs/demos/tree/master/ChniccsDemos/app/src/main/java/com/chniccs/study/demos/recycleview_refresh)  
 [使用readerScript实现动态模糊的案例](https://github.com/chniccs/demos/tree/master/ChniccsDemos/app/src/main/java/com/chniccs/study/demos/readerscript)
 [HandlerThread使用案例](https://github.com/chniccs/demos/tree/master/ChniccsDemos/app/src/main/java/com/chniccs/study/demos/handlerthread)
 [AES自定义加密解密的案例](https://github.com/chniccs/demos/tree/master/ChniccsDemos/app/src/main/java/com/chniccs/study/demos/security)
